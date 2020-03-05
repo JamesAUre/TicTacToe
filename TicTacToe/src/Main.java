@@ -10,7 +10,7 @@ public class Main {
 	//Game backbone function
 	static void game(){
 		Board board = new Board();
-		Scanner userPiece = new Scanner(System.in);
+		Scanner user_piece = new Scanner(System.in);
 		int x=0;
 		int y=0;
 		
@@ -21,9 +21,9 @@ public class Main {
 					//player1 interface
 					System.out.println("O turn");
 					System.out.print("enter x: ");
-					x = userPiece.nextInt() - 1;
+					x = user_piece.nextInt() - 1;
 					System.out.print("enter y: ");
-					y = userPiece.nextInt() - 1;
+					y = user_piece.nextInt() - 1;
 				} while (!board.validMove(x, y));
 				board.insertPiece(x, y, 0);
 			}
@@ -32,9 +32,9 @@ public class Main {
 					//player2 interface
 					System.out.println("X turn");
 					System.out.print("enter x: ");
-					x = userPiece.nextInt() - 1;
+					x = user_piece.nextInt() - 1;
 					System.out.print("enter y: ");
-					y = userPiece.nextInt() - 1;
+					y = user_piece.nextInt() - 1;
 				} while (!board.validMove(x, y));
 				board.insertPiece(x, y, 1);
 			}
