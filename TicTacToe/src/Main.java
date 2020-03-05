@@ -1,17 +1,24 @@
+//Imports
 import java.util.Scanner;
+
+//Main
 public class Main {
 	public static void main(String args[]) {
-		game();
+		game(); //don't want to keep code in main
 	}
 	
+	//Game backbone function
 	static void game(){
 		Board board = new Board();
 		Scanner userPiece = new Scanner(System.in);
 		int x=0;
 		int y=0;
+		
+		//game loop for turns
 		while (!board.checkGameOver()) {
 			if(board.getPlayer()) {
 				do {
+					//player1 interface
 					System.out.println("O turn");
 					System.out.print("enter x: ");
 					x = userPiece.nextInt() - 1;
@@ -22,6 +29,7 @@ public class Main {
 			}
 			else {
 				do {
+					//player2 interface
 					System.out.println("X turn");
 					System.out.print("enter x: ");
 					x = userPiece.nextInt() - 1;
@@ -31,16 +39,13 @@ public class Main {
 				board.insertPiece(x, y, 1);
 			}
 			
+			//both players interface
 			board.displayBoard();
 			board.switchPlayer();
 		}
+		
+		//exit interface
 		System.out.println("GAME FINISHED!");
 		System.out.println("Winner is: " + board.checkWinner());
-	}
-	
-	static void turn(boolean turn) {
-		if(turn) {
-			
-		}
 	}
 }
