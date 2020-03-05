@@ -39,13 +39,13 @@ public class Board {
 	}
 	
 	//Inserts piece value onto board
-	public void insertPiece(int x, int y, int player) {
-		tiles[y][x].set(player);
+	public void insertPiece(Location loc, int player) {
+		tiles[loc.y][loc.x].set(player);
 	}
 	
 	//Gets piece value from board
-	public char getPiece(int x, int y) {
-		return tiles[y][x].get();
+	public char getPiece(Location loc) {
+		return tiles[loc.y][loc.x].get();
 	}
 	
 	//Checks to see if game must stop
@@ -145,8 +145,8 @@ public class Board {
 	}
 	
 	//Checks to see if a piece may be occupied by player
-	public boolean validMove(int x, int y) {
-		if (tiles[y][x].is_empty()) {
+	public boolean validMove(Location loc) {
+		if (tiles[loc.y][loc.x].is_empty()) {
 			return true;
 		}
 		else {

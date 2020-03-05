@@ -17,13 +17,13 @@ public class Main {
 			if(board.getPlayer()) {
 				System.out.println("O turn");
 				insert_loc = getMove(board);
-				board.insertPiece(insert_loc.getX(), insert_loc.getY(), 0);
+				board.insertPiece(insert_loc, 0);
 	
 			}
 			else {
 				System.out.println("X turn");
 				insert_loc = getMove(board);
-				board.insertPiece(insert_loc.getX(), insert_loc.getY(), 1);
+				board.insertPiece(insert_loc, 1);
 			}
 			
 			//both players interface
@@ -51,10 +51,10 @@ public class Main {
 			x = user_piece.nextInt() - 1;
 			System.out.print("enter y: ");
 			y = user_piece.nextInt() - 1;
-		} while(!currentboard.validMove(x, y));
+			loc.set(x, y);
+		} while(!currentboard.validMove(loc));
 		
-		//storing it as a location and returning
-		loc.set(x, y);
+		//returning location object
 		return loc;
 	}
 }
